@@ -1,31 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import { Routes, Route, Link } from "react-router-dom";
+import { getTeachers, getStudents } from '../data'
 import TableRow from "../Components/TableRow";
 
 export default function Home() {
-  const teachers = [
-    {
-      first_name: "Brian",
-      id: 1,
-      last_name: "Stanton",
-    },
-    {
-      first_name: "Tatyana",
-      id: 2,
-      last_name: "Parks",
-    },
-  ];
 
-  const [students, setStudents] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://kekambas-bs.herokuapp.com/kekambas`)
-      .then((res) => res.json())
-      .then((data) => {
-        setStudents(data);
-      });
-  }, []);
-
+  const students = getStudents();
+  const teachers = getTeachers();
   const koaders = teachers.concat(students)
 
   let headers = ["Role", "First", "Last", ""];
