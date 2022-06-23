@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Home from '../Views/Home';
-const key = "ubfjDrdBgdST2o1hK7PXPw==8D7NsOPI3q3De97y";
+
 
 export default function KoaderKard({ person }) {
   const [hobby, setHobby] = useState('sleeping');
