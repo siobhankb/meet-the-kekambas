@@ -16,28 +16,24 @@ export default function Home() {
     },
   ];
 
-//   const [students, setStudents] = useState([]);
+  const [students, setStudents] = useState([]);
 
-//   useEffect(() => {
-//     fetch(`https://kekambas-bs.herokuapp.com/kekambas`)
-//       .then((res) => res.json())
-//       .then((data) => {
-//         const koaderNum = data.length;
-//         setStudents(data);
-//       });
-//   }, []);
+  useEffect(() => {
+    fetch(`https://kekambas-bs.herokuapp.com/kekambas`)
+      .then((res) => res.json())
+      .then((data) => {
+        setStudents(data);
+      });
+  }, []);
 
-  // const handleLinkClick = (event) > {
-  //     event.preventDefault();
-  //     const aStudent = event.
-  // }
+  const koaders = teachers.concat(students)
 
   let headers = ["Role", "First", "Last", ""];
   return (
-      <>
-          <div>
-              <h4 className="text-center" >Meet the Kekambas Kohort</h4>
-          </div>
+    <>
+      <div>
+        <h4 className="text-center">Meet the Kekambas Kohort</h4>
+      </div>
       <table className="table table-warning table-striped table-hover text-center">
         <thead>
           <tr>
@@ -47,12 +43,9 @@ export default function Home() {
           </tr>
         </thead>
         <tbody>
-          {teachers.map((teacher) => (
-            <TableRow key={teacher.first_name} teacher={teacher} />
+          {koaders.map((koader) => (
+            <TableRow key={koader.id} person={koader} />
           ))}
-          {/* {students.map((student) => (
-            <TableRow key={student} student={student} />
-          ))} */}
         </tbody>
       </table>
     </>

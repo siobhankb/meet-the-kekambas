@@ -8,11 +8,11 @@ export default function Nav( { brand }) {
     <div>
       <nav className="navbar navbar-dark bg-primary">
         <div className="container-fluid">
-          <Link className="nav-link active text-warning fw-bold" to={<Home />} >
+          <Link className="nav-link active text-warning  fs-3 fw-bold" to="/kekambas" >
             {brand}
           </Link>
-          <Link className="nav-link active text-white" to={<Spotlight />} >Seven
-          </Link>
+          {/* <Link className="nav-link active text-white" to="/kewl-koader" >Seven
+          </Link> */}
         </div>
       </nav>
     </div>

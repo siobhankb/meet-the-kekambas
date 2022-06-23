@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import Home from '../Views/Home';
+import { Link, useParams } from 'react-router-dom'
 
+const key = "ubfjDrdBgdST2o1hK7PXPw==8D7NsOPI3q3De97y";
 
 export default function KoaderKard({ person }) {
-  const [hobby, setHobby] = useState('sleeping');
-  const [animal, setAnimal] = useState('iguana');
+  const [hobby, setHobby] = useState('skipping stones');
+  const [animal, setAnimal] = useState('ostrich');
   const [bucket, setBucket] = useState('swim with sharks');
+
+  let params = useParams();
+  
 
   useEffect(() => {
     fetch('https://api.api-ninjas.com/v1/hobbies?category=general', {
@@ -52,45 +55,29 @@ export default function KoaderKard({ person }) {
   }, [])
   console.log(bucket)
 
-  console.log(person[0].first_name);
   return (
     <>
-      <div className="card bg-dark text-white">
-        <div class="card-body text-center">
-          <h5 class="card-title fs-3">
-            {person[0].first_name} {person[0].last_name}
-          </h5>
-          <img
-            src="https://picsum.photos/100"
-            class="card-img-top w-75"
-            alt="lorem picsum"
-          />
-          <p class="card-text fs-4">
-            Apart from coding,
-            <strong> {person[0].first_name}</strong> enjoys {hobby.toLowerCase()}{" "}
-            with their pet {animal} and has always wanted to {bucket}.
-          </p>
-          <Link to={<Home />} class="btn btn-primary">
-            Back to Kekambas Koaders
-          </Link>
+        <div className="card bg-dark text-white">
+          <div className="card-body text-center">
+            <h5 className="card-title fs-3">
+              {person[0].first_name} {person[0].last_name}
+            </h5>
+            <img
+              src="https://picsum.photos/100"
+              className="card-img-top w-75"
+              alt="lorem picsum"
+            />
+            <p className="card-text fs-4">
+              Apart from coding,
+              <strong> {person[0].first_name}</strong> enjoys{" "}
+              {hobby.toLowerCase()} with their pet {animal} and has always
+              wanted to {bucket}.
+            </p>
+            <Link to="/" className="btn btn-primary">
+              Back to Kekambas Koaders
+            </Link>
+          </div>
         </div>
-      </div>
     </>
-    // <div class="card" style="width: 18rem;">
-    //   <img src="https://picsum.photos/200" class="card-img-top" alt="lorem picsum" />
-    //   <div class="card-body text-center">
-    //     <h5 class="card-title">
-    //       {" "}
-    //       {person.first_name} {person.last_name}{" "}
-    //     </h5>
-    //     <p class="card-text">
-    //       {" "}
-    //       {person.first_name} likes to {}{" "}
-    //     </p>
-    //     <Link to={<Home />} class="btn btn-primary">
-    //       Back to Kekambas
-    //     </Link>
-    //   </div>
-    // </div>
   );
 }
